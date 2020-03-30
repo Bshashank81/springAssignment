@@ -1,16 +1,17 @@
 package com.spring.assignment;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 @Component
 public class BoxCricket implements Cricket {
 
 	
-	@Autowired
+	
 	Timings timings;
 	
-	@Autowired
+	
 	Players players;
 	
 	public BoxCricket() {
@@ -18,6 +19,7 @@ public class BoxCricket implements Cricket {
 	}
 	
 	@Autowired
+	@Qualifier("happyTimings")
 	public void playWithFriendsDuringHolidays(Timings theTimings) {
 		System.out.println(">>>Inside playWithFriendsDuringHolidays method");
 		timings = theTimings;
@@ -35,6 +37,7 @@ public class BoxCricket implements Cricket {
 	}
 	
 	@Autowired
+	@Qualifier("teamPlayers")
 	public void boysPlayCricket(Players thePlayers) {
 		players = thePlayers;
 		System.out.println(">>>>Inside another method used for autowiring ");
